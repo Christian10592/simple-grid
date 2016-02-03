@@ -1,0 +1,21 @@
+// ========================================= Grid ================================= //
+$columns: 12;
+
+// ========================================= Sizes ================================ //
+
+//Screen Sizes
+$xxs: 450px;
+$xs: 767px;
+$sm: 991px;
+$md: 1200px;
+$lg: $md + 1;
+
+//Gutter Size
+$gutter: 15px;
+
+//Contained Size
+$container-xxs: 100%;
+$container-xs: 100%;
+$container-sm: 750px;
+$container-md: 970px;
+$container-lg: 1080px;

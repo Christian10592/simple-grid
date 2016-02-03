@@ -1,0 +1,151 @@
+@import '../globals/variables';
+
+// ========================================= Containers ================================= //
+//Full Width Container
+.full-container {
+  width: 100%;
+  padding-left: $gutter;
+  padding-right: $gutter;
+}
+
+//Flex Container
+.flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+} 
+
+//No Gutter
+.no-gutter {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+//Container
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+  
+  //Container Extra Extra Small Screens
+  @media (max-width: $xxs) {
+    & {
+      width: $container-xxs;
+    }
+  }
+  //Container Extra Small Screens
+  @media (min-width: $xxs + 1) and (max-width: $xs) {
+    & {
+      width: $container-xs;
+    }
+  }
+  //Container Small Screens
+  @media (min-width: $xs + 1) and (max-width: $sm) {
+    & {
+      width: $container-sm;
+    }
+  }
+  //Container Medium Screens
+  @media (min-width: $sm + 1) and (max-width: $md) {
+    & {
+      width: $container-md;
+    }
+  }
+  //Container Large Screens
+  @media (min-width: $lg) {
+    & {
+      width: $container-lg;
+    }
+  }  
+}
+
+//Row
+.row {
+  clear: both;
+  float: left;
+  width: 100%;
+}
+
+.row:before,
+.row:after {
+    content: " ";
+    display: table;
+}
+
+.row:after {
+    clear: both;
+}
+
+// ========================================= Grid Items ================================= //
+
+//Contained Extra Extra Small Screens
+@mixin create-columns($screen-size) {
+  //Columns
+  @for $i from 1 through $columns {
+    .#{$screen-size}-#{$i} {
+      width: (($i * 100)/$columns)*1%;
+      float: left;
+    }
+  } 
+}
+
+//LG Columns
+@media (min-width: $lg) {
+  //@include create-columns(xxs);
+  @include create-columns(xs);
+  @include create-columns(sm);
+  @include create-columns(md);
+  @include create-columns(lg);
+}
+
+//MD Columns
+@media (min-width: $sm + 1) and (max-width: $md) {
+//  @include create-columns(xxs);
+  @include create-columns(xs);
+  @include create-columns(sm);
+  @include create-columns(md);
+}
+
+//SM Columns
+@media (min-width: $xs + 1) and (max-width: $sm) {
+  //@include create-columns(xxs);
+  @include create-columns(xs);
+  @include create-columns(sm);
+}
+
+//XS Columns
+@media (min-width: $xxs + 1) and (max-width: $xs) {
+  //@include create-columns(xxs);
+  @include create-columns(xs);
+}
+
+//XXS Columns
+@media (max-width: $xxs) {
+  [class^="xs-"], [class^="sm-"], [class^="md-"], [class^="lg-"] {
+    width: 100%;
+  }
+  // @include create-columns(xxs);
+}
+
+//Global Pillar Styles
+[class^="xxs-"],[class^="xs-"], [class^="sm-"], [class^="md-"], [class^="lg-"] {
+  position: relative;
+  min-height: 1px;
+  padding-left: $gutter;
+  padding-right: $gutter;
+  max-width: 100%;
+}
+
+
+
+
+
+
+  
+
+
